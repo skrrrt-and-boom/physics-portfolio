@@ -59,6 +59,15 @@ Verification block printed by the script:
 
 My read: (a) energy is conserved to ~1e-14 over the flight, so the integrator isn't the error source; (b) the vacuum range matches the closed form to ~1 µm - what's left is the linear landing interpolation, not RK4; (c) the drag range is converged to 4 decimals by dt = 1e-2, so I trust the dt = 1e-3 numbers. The suite in `tests/` locks these properties in.
 
+## Sensitivity to drag coefficient
+
+`python projects/p1_projectile_drag/sensitivity.py` sweeps c from 0 to 0.01 kg/m - range at fixed 45°, then an angle sweep per c for the optimal angle.
+
+- `figures/range_vs_c.png` - range falls monotonically from the vacuum limit. The c = 0 endpoint recovers the analytic 163.099 m, so the sweep is self-checking where it starts
+- `figures/optimal_angle_vs_c.png` - optimal angle starts at exactly 45° (c = 0) and slides to **32°** at c = 0.01 kg/m, where the 45° range is down to **23.9 m - 14.7% of vacuum**
+
+Physical reading: larger c lowers the terminal speed v_t = sqrt(mg/c), so drag dominates earlier and hang time gets taxed harder - the optimum keeps trading height for a flatter path. Verification printed by the script: c = 0 reproduces both vacuum answers (range to 3.2e-06 m, angle exactly 45°), and range is non-increasing over the whole sweep. `tests/test_sensitivity.py` locks the monotonicity and the vacuum optimum.
+
 ## Parameters (defaults in `simulate.py`)
 
 | Symbol | Meaning | Default |
@@ -78,4 +87,4 @@ My read: (a) energy is conserved to ~1e-14 over the flight, so the integrator is
 ## TODO
 
 - [ ] Match against a published drag example
-- [ ] Sensitivity study over c (range + optimal angle)
+- [x] Sensitivity study over c (range + optimal angle) - `sensitivity.py`, 2026-07-30
