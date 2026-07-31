@@ -9,7 +9,7 @@ I'm teaching myself physics by building small systems and forcing the numerics t
 | # | Project | Status | Folder |
 |---|---------|--------|--------|
 | 1 | Projectile motion with quadratic air drag (RK4) | done | [`projects/p1_projectile_drag`](projects/p1_projectile_drag) |
-| 2 | Damped / driven oscillator - resonance curve, Q factor | next | `projects/p2_oscillator` |
+| 2 | Damped / driven oscillator - resonance curve, Q factor | done | [`projects/p2_driven_oscillator`](projects/p2_driven_oscillator) |
 | 3 | Quantum tunneling in 1D (eigenstates + wave-packet evolution) | planned | TBD |
 
 ## Run
