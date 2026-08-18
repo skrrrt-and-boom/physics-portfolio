@@ -4,6 +4,10 @@ A classical particle bounces off a wall it can't climb; a quantum one leaks thro
 
 Working in dimensionless units ($\hbar = m = 1$).
 
+## Web explorer
+
+`docs/index.html` at the repo root is a static tunneling explorer: analytic rectangular-barrier transmission with sliders for barrier height and width. The time-dependent packet evolution is still separate work.
+
 ## Model
 
 Time-independent Schrödinger equation and its time-dependent evolution:
